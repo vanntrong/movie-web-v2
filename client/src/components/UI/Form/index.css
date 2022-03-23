@@ -1,0 +1,114 @@
+.form-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.form {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.text-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.text-field label {
+  display: inline-block;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding: 1px 5px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  color: #d1d0cf;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+}
+
+.text-field input {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  /* border: 1px solid; */
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button-submit {
+  isolation: isolate;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button-submit::before {
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #c31432; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #240b36,
+    #c31432
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  z-index: -1;
+  transition: width 0.25s ease-in;
+  border-radius: inherit;
+}
+
+.button-submit:hover::before {
+  width: 100%;
+}
+
+.error {
+  color: #bf1650;
+}
+
+.error::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.input-file {
+  margin: 0 auto;
+  width: 100%;
+  height: 15rem;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  border-radius: 8px;
+  border: 1px dotted #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.input-file input[type="file"] {
+  /* display: none; */
+}
+
+.input-file .icon-upload {
+  color: #ccc;
+  font-size: 3rem;
+  pointer-events: none;
+}

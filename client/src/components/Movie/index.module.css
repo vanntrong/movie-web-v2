@@ -1,0 +1,26 @@
+.active {
+  position: relative;
+  isolation: isolate;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  border-left: 5px solid #e50c14;
+}
+
+.movie-last-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+
+.movie-last-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}

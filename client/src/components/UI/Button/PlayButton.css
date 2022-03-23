@@ -1,0 +1,39 @@
+.play-button {
+  isolation: isolate;
+  position: relative;
+}
+
+.play-button::before {
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #7e1325; /* fallback for old browsers */
+
+  z-index: -1;
+  transition: width 0.25s ease-in;
+  border-radius: inherit;
+}
+
+.play-button:hover::after {
+  width: 50%;
+}
+.play-button::after {
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #7e1325;
+
+  z-index: -1;
+  transition: width 0.25s ease-in;
+  border-radius: inherit;
+}
+
+.play-button:hover::before {
+  width: 50%;
+}

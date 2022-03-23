@@ -1,0 +1,29 @@
+.item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 100rem;
+}
+
+.counter {
+  width: 15px;
+  height: 15px;
+  border-radius: 100rem;
+  color: white;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
