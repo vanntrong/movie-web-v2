@@ -34,11 +34,11 @@ const Modal = (props) => {
         <div className="absolute w-[200px] top-[120%] right-0 py-2 px-2 border-[1px] border-solid modal rounded-lg">
           <div className="flex items-center gap-x-2 hover:bg-[rgba(0,0,0,0.3)] rounded-lg px-2 py-2">
             <div className="w-[50px] h-[50px]">
-              <img src={user.avatar} alt="user avatar" className="w-full h-full object-cover rounded-full" />
+              <img src={user?.avatar} alt="user avatar" className="w-full h-full object-cover rounded-full" />
             </div>
             <Link to="/profile">
               <div className="text-white text-[18px] capitalize flex flex-col">
-                <span>{user.displayName ? user.displayName : `${user.firstName} ${user.lastName}`}</span>
+                <span>{user?.displayName ? user?.displayName : `${user?.firstName} ${user?.lastName}`}</span>
                 <span className="text-[12px] text-gray">See your profile</span>
               </div>
             </Link>

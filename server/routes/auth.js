@@ -58,12 +58,12 @@ router.post(
     if (req.isAuthenticated()) {
       const accessToken = authController.createAccessToken(req.user);
       const refreshToken = authController.createRefreshToken(req.user);
-
+      const { password, ...other } = req.user._doc;
       res.cookie("refreshToken", refreshToken);
       res.status(200).json({
         success: true,
         message: "Successfully",
-        user: req.user._doc,
+        user: { ...other },
         accessToken: `Bearer ${accessToken}`,
       });
     } else {

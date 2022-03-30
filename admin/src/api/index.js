@@ -39,7 +39,7 @@ export const addNewUserApi = async (user) => {
 
 export const deleteUserApi = async (id) => {
   try {
-    const res = await authApiController.delete(`/user/delete/${id}`);
+    const res = await authApiController.delete(`/user/${id}/delete`);
     return res;
   } catch (error) {
     return error.response;

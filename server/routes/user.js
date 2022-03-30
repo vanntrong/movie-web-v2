@@ -5,10 +5,10 @@ const router = require("express").Router();
 
 router.patch("/watch-later", middlewareController.verifyToken, userController.updateUserListWatchLater);
 
-router.patch("/update", middlewareController.verifyToken, userController.updateUser);
+router.patch("/:userId/update", middlewareController.verifyToken, userController.updateUser);
 
 router.get("/all", middlewareController.verifyTokenAndAdmin, userController.getAllUser);
 
-router.delete("/delete/:id", middlewareController.verifyToken, userController.deleteUser);
+router.delete("/:userId/delete", middlewareController.verifyToken, userController.deleteUser);
 
 module.exports = router;

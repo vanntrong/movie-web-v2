@@ -20,23 +20,20 @@ const userController = {
 
   updateUser: async (req, res) => {
     try {
-      const user = await User.findByIdAndUpdate(
-        req.user.id,
+      if (req.body.password) {
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null);
+      }
+      const newUser = await User.findByIdAndUpdate(
+        req.params.userId,
         {
-          $set: {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            avatar: req.body.avatar,
-            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
-          },
+          $set: req.body,
         },
         { new: true }
       );
-
       res.status(200).json({
         success: true,
         message: "Successfully updated",
-        data: user,
+        data: newUser,
       });
     } catch (error) {
       console.log(error);
@@ -65,7 +62,7 @@ const userController = {
 
   deleteUser: async (req, res) => {
     try {
-      if (req.user.id !== req.params.id && !req.user.isAdmin) {
+      if (req.user.id !== req.params.userId && !req.user.isAdmin) {
         res.status(403).json({
           success: false,
           error: "You can't delete another user",

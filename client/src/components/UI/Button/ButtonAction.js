@@ -88,7 +88,9 @@ const ButtonAction = (props) => {
           <i className="fa-solid fa-heart"></i>
         </div>
         {isUserLoggedIn &&
-        currentWatchLaterList.find((item) => item.id === props.data.id && item.media_type === props.data.media_type) ? (
+        currentWatchLaterList?.find(
+          (item) => item.id === props.data.id && item.media_type === props.data.media_type
+        ) ? (
           <div className={classIcon} onClick={removeMovieFromWatchLater}>
             <i className="fa-solid fa-check"></i>
           </div>

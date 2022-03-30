@@ -58,9 +58,9 @@ export const updateWatchLaterApi = async (data) => {
   }
 };
 
-export const updateProfileApi = async (data) => {
+export const updateProfileApi = async (data, userId) => {
   try {
-    const res = await authApiCaller.patch("/user/update", JSON.stringify(data));
+    const res = await authApiCaller.patch(`/user/${userId}/update`, JSON.stringify(data));
     return res.data;
   } catch (error) {
     return error.response;

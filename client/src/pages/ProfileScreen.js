@@ -16,10 +16,10 @@ import { userActions } from "../redux/slice/UserSlice";
 import { useNavigate } from "react-router-dom";
 
 const ProfileScreen = () => {
-  const [fileBase64, setFileBase64] = useState("");
+  const currentUser = useSelector($userSelector);
+  const [fileBase64, setFileBase64] = useState(currentUser.avatar);
   const [isShowForm, setIsShowForm] = useState(false);
 
-  const currentUser = useSelector($userSelector);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const classTable = `text-gray border-[1px] border-gray text-center block mt-[30px] w-full`;
@@ -40,10 +40,12 @@ const ProfileScreen = () => {
     const userData = {
       firstName,
       lastName,
-      password: password ? password : currentUser.password,
       avatar: fileBase64,
     };
-    const res = await updateProfileApi(userData);
+    if (password) {
+      userData.password = password;
+    }
+    const res = await updateProfileApi(userData, currentUser._id);
     if (res.success) {
       toast.success("Profile updated successfully", {
         theme: "dark",
@@ -63,7 +65,7 @@ const ProfileScreen = () => {
           <div className="bg-dark-02 px-[30px] py-[25px] flex items-center justify-center flex-col m-0 lg:basis-2/5">
             <div className="rounded-full w-[100%] h-[100%] max-w-[200px] max-h-[200px]">
               <img
-                src={fileBase64.trim().length > 0 ? fileBase64 : currentUser.avatar}
+                src={fileBase64}
                 alt="user avatar"
                 className="w-[200px] h-[200px] max-w-[200px] max-h-[200px] object-cover rounded-full"
               />

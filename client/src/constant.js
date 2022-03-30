@@ -8,7 +8,7 @@ export const mediaPlayerUrl = "https://www.2embed.ru/embed/tmdb/";
 
 //user
 export const BASE_URL_USER = "https://api.freemovienow.online";
-// export const BASE_URL_USER = "http://localhost:8000/api";
+// export const BASE_URL_USER = "http://localhost:8000";
 export const sideDomain = "https://freemovienow.online";
 
 export const handleAddToHistory = (data, dispatch) => {

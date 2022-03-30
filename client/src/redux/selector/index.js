@@ -7,4 +7,4 @@ export const $genre = (state) => state.movies.genre;
 
 export const $userSelector = (state) => state.persistedReducer.user.user;
 export const $userIsLoggedIn = (state) => state.persistedReducer.user.isLoggedIn;
-export const $userWatchLaterList = (state) => state.persistedReducer.user.user.watchLater;
+export const $userWatchLaterList = (state) => state.persistedReducer.user?.user?.watchLater;
